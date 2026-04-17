@@ -32,7 +32,13 @@
   <title>nasspire</title>
   <link rel="manifest" href="manifest.json">
 </head>
-<body>
+  <script>
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      window.flutterConfiguration = {
+        renderer: "html"
+      };
+    }
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
