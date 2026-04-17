@@ -49,22 +49,22 @@ class HeroSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () => context.go('/courses'),
+                  onPressed: () => context.go('/trainings'),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                   ),
-                  child: const Text('Explore Courses', style: TextStyle(fontSize: 18)),
+                  child: const Text('Explore Trainings', style: TextStyle(fontSize: 18)),
                 ),
                 const SizedBox(width: 24),
                 OutlinedButton(
-                  onPressed: () => context.go('/counseling'),
+                  onPressed: () => context.go('/consulting'),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: Colors.white,
                     side: const BorderSide(color: Colors.white, width: 2),
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                     textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                  child: const Text('Book Counseling'),
+                  child: const Text('Book Consulting'),
                 ),
               ],
             )

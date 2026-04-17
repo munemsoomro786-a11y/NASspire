@@ -28,7 +28,7 @@ class ServicesOverview extends ConsumerWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'Featured Courses',
+                'Featured Trainings',
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               const SizedBox(height: 48),
@@ -70,7 +70,7 @@ class ServicesOverview extends ConsumerWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      '\$${course.price}',
+                                      '${course.price.toStringAsFixed(0)} PKR${course.pricingUnit ?? ''}',
                                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                                         color: Theme.of(context).colorScheme.primary,
                                       ),
@@ -81,7 +81,7 @@ class ServicesOverview extends ConsumerWidget {
                                           context: context,
                                           builder: (context) => AlertDialog(
                                             title: Text(course.title),
-                                            content: Text('${course.description}\n\nDuration: ${course.duration}\nPrice: \$${course.price}'),
+                                            content: Text('${course.description}\n\nDuration: ${course.duration}\nPrice: ${course.price.toStringAsFixed(0)} PKR${course.pricingUnit ?? ''}'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(context),
@@ -116,12 +116,12 @@ class ServicesOverview extends ConsumerWidget {
               ),
               const SizedBox(height: 48),
               OutlinedButton(
-                onPressed: () => context.go('/courses'),
+                onPressed: () => context.go('/trainings'),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                   side: BorderSide(color: Theme.of(context).colorScheme.primary),
                 ),
-                child: Text('View All Courses', style: TextStyle(color: Theme.of(context).colorScheme.primary)),
+                child: Text('View All Trainings', style: TextStyle(color: Theme.of(context).colorScheme.primary)),
               ),
             ],
           ),

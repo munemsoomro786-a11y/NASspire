@@ -1,122 +1,147 @@
 import '../models/course.dart';
-import '../models/counseling_service.dart';
+import '../models/consulting_service.dart';
 import '../models/testimonial.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MockData {
   static const List<Course> courses = [
+    // Skill-Based Courses
     Course(
       id: 'c1',
-      title: 'Advanced Web Development',
-      description: 'Master modern frontend architectures with Flutter and React.',
-      duration: '12 Weeks',
-      price: 299.00,
-      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80',
+      title: 'Communication and Soft Skills',
+      description: 'Enhance your workplace communication, teamwork, and overall professional soft skills.',
+      duration: '3 Weeks',
+      price: 3500.00,
+      type: 'Skill Based Course',
+      imageUrl: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=400&q=80',
     ),
     Course(
       id: 'c2',
-      title: 'Data Science & Machine Learning',
-      description: 'Learn Python, Pandas, and build predictive models.',
-      duration: '16 Weeks',
-      price: 349.00,
-      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80',
+      title: 'CV Writing and Interview Preparation',
+      description: 'Master the art of crafting a winning CV and ace your job interviews.',
+      duration: '2 Weeks',
+      price: 2500.00,
+      type: 'Skill Based Course',
+      imageUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80',
     ),
     Course(
       id: 'c3',
-      title: 'Business Administration Fundamentals',
-      description: 'Core concepts inspired by global business leaders.',
-      duration: '8 Weeks',
-      price: 199.00,
-      imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80',
+      title: 'Digital Skills (MS Office+ Freelancing basics)',
+      description: 'Gain essential digital literacy and kickstart an online freelancing career.',
+      duration: '4 Weeks',
+      price: 4000.00,
+      type: 'Skill Based Course',
+      imageUrl: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&q=80',
+    ),
+
+    // Workshops and Seminars
+    Course(
+      id: 'w1',
+      title: 'Career Awareness Session',
+      description: 'Guidance and insight into finding and following the right career trajectory.',
+      duration: '1 Day',
+      price: 1000.00,
+      type: 'Workshop',
+      pricingUnit: '/Participant',
+      imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80',
     ),
     Course(
-      id: 'c4',
-      title: 'UI/UX Design Masterclass',
-      description: 'Create stunning user interfaces with Figma and Material Design.',
-      duration: '10 Weeks',
-      price: 249.00,
-      imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=400&q=80',
+      id: 'w2',
+      title: 'Industry Trend Seminar',
+      description: 'Keep up with the latest advancements moving the industry forward today.',
+      duration: '1 Day',
+      price: 1500.00,
+      type: 'Seminar',
+      pricingUnit: '/Participant',
+      imageUrl: 'https://images.unsplash.com/photo-1554200876-56c2f25224fa?auto=format&fit=crop&w=400&q=80',
     ),
     Course(
-      id: 'c5',
-      title: 'Introduction to Artificial Intelligence',
-      description: 'Understanding neural networks, natural language processing, and modern AI.',
-      duration: '14 Weeks',
-      price: 399.00,
-      imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80',
-    ),
-    Course(
-      id: 'c6',
-      title: 'Digital Marketing & SEO',
-      description: 'Master online advertising, brand building, and growth hacking strategies.',
-      duration: '6 Weeks',
-      price: 149.00,
-      imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
-    ),
-    Course(
-      id: 'c7',
-      title: 'Financial Accounting',
-      description: 'Learn the principles of bookkeeping, statements, and corporate finance.',
-      duration: '8 Weeks',
-      price: 199.00,
-      imageUrl: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80',
-    ),
-    Course(
-      id: 'c8',
-      title: 'Mobile App Development with Flutter',
-      description: 'Build native cross-platform apps from a single codebase seamlessly.',
-      duration: '12 Weeks',
-      price: 299.00,
-      imageUrl: 'https://images.unsplash.com/photo-1617042375876-a13e36732a04?auto=format&fit=crop&w=400&q=80',
-    ),
-    Course(
-      id: 'c9',
-      title: 'Introduction to Cybersecurity',
-      description: 'Essential concepts to protect networks, data, and software against attacks.',
-      duration: '10 Weeks',
-      price: 249.00,
-      imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80',
-    ),
-    Course(
-      id: 'c10',
-      title: 'Project Management Fundamentals',
-      description: 'Agile methodologies, scrum principles, and effective leadership.',
-      duration: '8 Weeks',
-      price: 179.00,
-      imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80',
+      id: 'w3',
+      title: 'Motivational and Growth Workshop',
+      description: 'Build robust habits, discipline, and cultivate a growth mindset.',
+      duration: '1 Day',
+      price: 2000.00,
+      type: 'Workshop',
+      pricingUnit: '/Participant',
+      imageUrl: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=400&q=80',
     ),
   ];
 
-  static const List<CounselingService> services = [
-    CounselingService(
-      id: 's1',
-      title: 'Career Counseling',
-      description: 'One-on-one session to map out your career trajectory based on industry trends.',
-      price: 50.00,
+  static const List<ConsultingService> services = [
+    ConsultingService(
+      id: 'cons1',
+      title: 'Career Counselling Session',
+      type: '1-on-1 Session',
+      price: 2000.00,
+      category: 'Student Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=400&q=80',
+      description: 'Find your perfect career path through dedicated one-on-one professional guidance.',
     ),
-    CounselingService(
-      id: 's2',
-      title: 'Academic Advising',
-      description: 'Guidance on course selection and educational planning for long-term success.',
-      price: 40.00,
+    ConsultingService(
+      id: 'cons2',
+      title: 'Subject & University Selection',
+      type: 'Guidance Session',
+      price: 1500.00,
+      category: 'Student Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80',
+      description: 'Navigate the complexities of college admissions and academic majors with ease.',
     ),
-    CounselingService(
-      id: 's3',
-      title: 'Mental Wellness Coaching',
-      description: 'Supportive sessions to manage academic stress and improve focus.',
-      price: 60.00,
+    ConsultingService(
+      id: 'cons3',
+      title: 'Personalized Career Roadmap',
+      type: 'Customized Plan',
+      price: 2500.00,
+      category: 'Student Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&q=80',
+      description: 'A comprehensive step-by-step strategy for long term professional success.',
     ),
-    CounselingService(
-      id: 's4',
-      title: 'Resume & Portfolio Review',
-      description: 'Professional critique and enhancement of your CV and project portfolios.',
-      price: 45.00,
+    ConsultingService(
+      id: 'cons4',
+      title: 'Online Counselling Session',
+      type: 'Virtual Session',
+      price: 1500.00,
+      category: 'Student Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80',
+      description: 'Convenient virtual advising from the comfort of your own home.',
     ),
-    CounselingService(
-      id: 's5',
-      title: 'Financial Aid Consulting',
-      description: 'Expert advice on securing scholarships, grants, and managing academic funding.',
-      price: 35.00,
+    ConsultingService(
+      id: 'cons5',
+      title: 'Skill-Based Learning Plan',
+      type: 'Customized Plan',
+      price: 2000.00,
+      category: 'Student Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1554200876-56c2f25224fa?auto=format&fit=crop&w=400&q=80',
+      description: 'Target specific soft and technical skills required to land your dream job.',
+    ),
+    ConsultingService(
+      id: 'corp1',
+      title: 'Employee Skill Development',
+      type: 'Training Session',
+      price: 20000.00,
+      pricingUnit: ' / session',
+      category: 'Corporate Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=400&q=80',
+      description: 'Empower your workforce with modern tools and methodologies to increase efficiency.',
+    ),
+    ConsultingService(
+      id: 'corp2',
+      title: 'Leadership & Teamwork Training',
+      type: 'Training Session',
+      price: 25000.00,
+      pricingUnit: ' / session',
+      category: 'Corporate Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=400&q=80',
+      description: 'Cultivate strong leadership and cohesive teamwork dynamics within your organization.',
+    ),
+    ConsultingService(
+      id: 'corp3',
+      title: 'Customized Corporate Workshop',
+      type: 'Workshop',
+      price: 30000.00,
+      pricingUnit: ' / workshop',
+      category: 'Corporate Consulting',
+      imageUrl: 'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=400&q=80',
+      description: 'Tailor-made seminars addressing specific operational challenges in your company.',
     ),
   ];
 
@@ -149,7 +174,7 @@ class MockData {
 }
 
 final coursesProvider = Provider<List<Course>>((ref) => MockData.courses);
-final counselingProvider = Provider<List<CounselingService>>((ref) => MockData.services);
+final consultingProvider = Provider<List<ConsultingService>>((ref) => MockData.services);
 final testimonialsProvider = Provider<List<Testimonial>>((ref) => MockData.testimonials);
 
 class EnrolledCoursesNotifier extends Notifier<List<Course>> {
@@ -167,17 +192,17 @@ final enrolledCoursesProvider = NotifierProvider<EnrolledCoursesNotifier, List<C
   return EnrolledCoursesNotifier();
 });
 
-class BookedCounselingNotifier extends Notifier<List<CounselingService>> {
+class BookedConsultingNotifier extends Notifier<List<ConsultingService>> {
   @override
-  List<CounselingService> build() => [];
+  List<ConsultingService> build() => [];
 
-  void book(CounselingService service) {
+  void book(ConsultingService service) {
     if (!state.any((s) => s.id == service.id)) {
       state = [...state, service];
     }
   }
 }
 
-final bookedCounselingProvider = NotifierProvider<BookedCounselingNotifier, List<CounselingService>>(() {
-  return BookedCounselingNotifier();
+final bookedConsultingProvider = NotifierProvider<BookedConsultingNotifier, List<ConsultingService>>(() {
+  return BookedConsultingNotifier();
 });

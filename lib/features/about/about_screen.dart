@@ -46,8 +46,8 @@ class AboutScreen extends StatelessWidget {
                       Expanded(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(16),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1577415124269-dd11407733cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                          child: Image.asset(
+                            'assets/images/nisar.jpg',
                             fit: BoxFit.cover,
                             height: 450,
                           ),

@@ -22,7 +22,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         content = const _MyCoursesTab();
         break;
       case 1:
-        content = const _MyCounselingsTab();
+        content = const _MyConsultingsTab();
         break;
       case 2:
         content = const _CertificatesTab();
@@ -50,13 +50,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 children: [
                   _SidebarItem(
                     icon: Icons.school,
-                    title: 'My Courses',
+                    title: 'My Trainings',
                     isSelected: _selectedIndex == 0,
                     onTap: () => setState(() => _selectedIndex = 0),
                   ),
                   _SidebarItem(
                     icon: Icons.psychology,
-                    title: 'My Counselings',
+                    title: 'My Consultings',
                     isSelected: _selectedIndex == 1,
                     onTap: () => setState(() => _selectedIndex = 1),
                   ),
@@ -98,7 +98,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 children: [
                   _SidebarItem(
                     icon: Icons.school,
-                    title: 'My Courses',
+                    title: 'My Trainings',
                     isSelected: _selectedIndex == 0,
                     onTap: () {
                       setState(() => _selectedIndex = 0);
@@ -107,7 +107,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   _SidebarItem(
                     icon: Icons.psychology,
-                    title: 'My Counselings',
+                    title: 'My Consultings',
                     isSelected: _selectedIndex == 1,
                     onTap: () {
                       setState(() => _selectedIndex = 1);
@@ -184,10 +184,10 @@ class _MyCoursesTab extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('My Courses', style: Theme.of(context).textTheme.displayMedium),
+        Text('My Trainings', style: Theme.of(context).textTheme.displayMedium),
         const SizedBox(height: 32),
         if (enrolledCourses.isEmpty)
-          const Text('You have not enrolled in any courses yet.')
+          const Text('You have not enrolled in any trainings yet.')
         else
           ListView.separated(
             shrinkWrap: true,
@@ -244,20 +244,20 @@ class _MyCoursesTab extends ConsumerWidget {
   }
 }
 
-class _MyCounselingsTab extends ConsumerWidget {
-  const _MyCounselingsTab();
+class _MyConsultingsTab extends ConsumerWidget {
+  const _MyConsultingsTab();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bookedServices = ref.watch(bookedCounselingProvider);
+    final bookedServices = ref.watch(bookedConsultingProvider);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('My Counselings', style: Theme.of(context).textTheme.displayMedium),
+        Text('My Consultings', style: Theme.of(context).textTheme.displayMedium),
         const SizedBox(height: 32),
         if (bookedServices.isEmpty)
-          const Text('You have not booked any counseling sessions yet.')
+          const Text('You have not booked any consulting sessions yet.')
         else
           ListView.separated(
             shrinkWrap: true,

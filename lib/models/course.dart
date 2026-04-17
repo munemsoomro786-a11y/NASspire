@@ -5,6 +5,8 @@ class Course {
   final String duration;
   final double price;
   final String imageUrl;
+  final String type;
+  final String? pricingUnit;
 
   const Course({
     required this.id,
@@ -13,5 +15,7 @@ class Course {
     required this.duration,
     required this.price,
     required this.imageUrl,
+    this.type = 'Course',
+    this.pricingUnit,
   });
 }

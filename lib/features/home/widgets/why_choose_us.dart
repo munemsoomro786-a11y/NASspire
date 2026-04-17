@@ -14,7 +14,7 @@ class WhyChooseUs extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'The NASspire Difference',
+                'The NASspire Promise',
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               const SizedBox(height: 60),

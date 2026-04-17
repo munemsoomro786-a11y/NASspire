@@ -32,9 +32,9 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
             children: [
               _HeaderLink(title: 'Home', path: '/'),
               const SizedBox(width: 24),
-              _HeaderLink(title: 'Courses', path: '/courses'),
+              _HeaderLink(title: 'Trainings', path: '/trainings'),
               const SizedBox(width: 24),
-              _HeaderLink(title: 'Counseling', path: '/counseling'),
+              _HeaderLink(title: 'Consulting', path: '/consulting'),
               const SizedBox(width: 24),
               _HeaderLink(title: 'About', path: '/about'),
               const SizedBox(width: 24),

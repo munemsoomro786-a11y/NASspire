@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import '../features/home/home_screen.dart';
-import '../features/courses/courses_screen.dart';
-import '../features/counseling/counseling_screen.dart';
+import '../features/trainings/trainings_screen.dart';
+import '../features/consulting/consulting_screen.dart';
 import '../features/about/about_screen.dart';
 import '../features/contact/contact_screen.dart';
 import '../features/dashboard/dashboard_screen.dart';
@@ -14,12 +14,12 @@ final appRouter = GoRouter(
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
-      path: '/courses',
-      builder: (context, state) => const CoursesScreen(),
+      path: '/trainings',
+      builder: (context, state) => const TrainingsScreen(),
     ),
     GoRoute(
-      path: '/counseling',
-      builder: (context, state) => const CounselingScreen(),
+      path: '/consulting',
+      builder: (context, state) => const ConsultingScreen(),
     ),
     GoRoute(
       path: '/about',

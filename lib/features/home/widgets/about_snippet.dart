@@ -52,8 +52,8 @@ class AboutSnippet extends StatelessWidget {
               Expanded(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
-                    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                  child: Image.asset(
+                    'assets/images/nisar.jpg',
                     fit: BoxFit.cover,
                     height: 400,
                   ),
