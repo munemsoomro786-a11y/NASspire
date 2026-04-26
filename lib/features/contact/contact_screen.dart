@@ -108,10 +108,8 @@ class _ContactScreenState extends State<ContactScreen> {
                               title: 'Email', 
                               detail: 'nasspire@gmail.com',
                               onTap: () async {
-                                final Uri emailUri = Uri.parse('https://mail.google.com/mail/?view=cm&fs=1&to=nasspire@gmail.com');
-                                if (await canLaunchUrl(emailUri)) {
-                                  await launchUrl(emailUri);
-                                }
+                                final Uri emailUri = Uri(scheme: 'mailto', path: 'nasspire@gmail.com');
+                                await launchUrl(emailUri, mode: LaunchMode.externalApplication);
                               },
                             ),
                             const SizedBox(height: 24),
