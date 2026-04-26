@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/mock_data.dart';
@@ -11,9 +12,27 @@ class TestimonialSlider extends ConsumerStatefulWidget {
 
 class _TestimonialSliderState extends ConsumerState<TestimonialSlider> {
   final PageController _controller = PageController();
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(seconds: 4), (Timer timer) {
+      if (_controller.hasClients) {
+        final testimonials = ref.read(testimonialsProvider);
+        int nextPage = _controller.page!.round() + 1;
+        _controller.animateToPage(
+          nextPage,
+          duration: const Duration(milliseconds: 800),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
 
   @override
   void dispose() {
+    _timer?.cancel();
     _controller.dispose();
     super.dispose();
   }
@@ -49,9 +68,8 @@ class _TestimonialSliderState extends ConsumerState<TestimonialSlider> {
                       height: 300,
                       child: PageView.builder(
                         controller: _controller,
-                        itemCount: testimonials.length,
                         itemBuilder: (context, index) {
-                          final t = testimonials[index];
+                          final t = testimonials[index % testimonials.length];
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 24),
                             child: Card(
